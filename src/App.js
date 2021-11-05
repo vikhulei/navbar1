@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Overview from "./pages/Overview";
 import Menubar from "./components/Menubar";
