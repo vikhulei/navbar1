@@ -13,7 +13,7 @@ const App = () => {
           <Route path="/overview" element={<Overview />} />
         </Routes>
       </Router>
-      <h3>Hi</h3>
+      <h3>Hello</h3>
     </>
   );
 };
