@@ -13,6 +13,8 @@ const Nav = styled.nav`
 const ReportsWrap = styled.div`
   height: 200px;
   display: flex;
+  justify-content: right;
+  align-items: center;
   background-color: yellow;
 `;
 
