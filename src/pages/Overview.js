@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const Overview = () => {
   return (
-    <div className='home'>
-      <h1>Overview</h1>
+    <div className="home">
+      <h3>Overview</h3>
     </div>
   );
 };

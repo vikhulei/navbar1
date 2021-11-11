@@ -10,12 +10,17 @@ const Nav = styled.nav`
   align-items: center;
 `;
 
-const ReportsWrap = styled.div`
-  height: 200px;
+const MenuWrap = styled.div`
+  background-color: white;
   display: flex;
-  justify-content: right;
-  align-items: center;
-  background-color: yellow;
+  flex-direction: column;
+  align-items: flex-start;
+  /* justify-content: center; */
+  height: 100%;
+`;
+
+const Submenu = styled.div`
+  background-color: lightblue;
 `;
 
 const NavLink = styled(Link)`
@@ -33,12 +38,18 @@ const Menubar = () => {
     <>
       <Nav>
         <NavLink to="/">Home</NavLink>
-        <ReportsWrap>
+        <MenuWrap>
           <NavLink to="#" onClick={showSubmenu}>
             Reports
           </NavLink>
-        </ReportsWrap>
+          <Submenu>
+            <p>Item1</p>
+            <p>Item2</p>
+            <p>Item3</p>
+          </Submenu>
+        </MenuWrap>
         <NavLink to="/overview">Overview</NavLink>
+        <NavLink to="/original">Original</NavLink>
       </Nav>
     </>
   );
