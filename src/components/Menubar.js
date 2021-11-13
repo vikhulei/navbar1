@@ -3,53 +3,63 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Nav = styled.nav`
+  position: relative;
   height: 60px;
-  background-color: yellow;
+  margin-bottom: 10px;
+  background-color: lightgreen;
   display: flex;
   justify-content: right;
   align-items: center;
 `;
 
-const MenuWrap = styled.div`
-  background-color: white;
+const LinkWrapper = styled.div`
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  /* justify-content: center; */
-  height: 100%;
-`;
-
-const Submenu = styled.div`
-  background-color: lightblue;
+  margin-right: 5vw;
 `;
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  margin-right: 5vw;
+  color: darkblue;
+`;
+
+const Submenu = styled.div`
+  background-color: lightgreen;
+  position: fixed;
+  top: ${({ submenu }) => (submenu ? "40px" : "-20vh")};
+  width: 100px;
+  transition: 550ms;
+  z-index: -1;
+  opacity: 0.85;
 `;
 
 const Menubar = () => {
   const [submenu, setSubmenu] = useState(false);
   const showSubmenu = () => {
     setSubmenu(!submenu);
-    alert();
   };
   return (
     <>
       <Nav>
-        <NavLink to="/">Home</NavLink>
-        <MenuWrap>
+        <LinkWrapper>
+          <NavLink to="/">Home</NavLink>
+        </LinkWrapper>
+        <LinkWrapper>
           <NavLink to="#" onClick={showSubmenu}>
             Reports
           </NavLink>
-          <Submenu>
+          <Submenu submenu={submenu}>
+            <NavLink to="/overview">Overview</NavLink>
             <p>Item1</p>
             <p>Item2</p>
             <p>Item3</p>
+            <p>Item3</p>
+            <p>Item3</p>
           </Submenu>
-        </MenuWrap>
-        <NavLink to="/overview">Overview</NavLink>
-        <NavLink to="/original">Original</NavLink>
+        </LinkWrapper>
+        <LinkWrapper>
+          <NavLink to="/original">Original</NavLink>
+        </LinkWrapper>
       </Nav>
     </>
   );

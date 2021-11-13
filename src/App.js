@@ -12,10 +12,19 @@ const App = () => {
         <Menubar />
         <Routes>
           <Route path="/overview" element={<Overview />} />
-          <Route path="/original" element={<Original />} />
         </Routes>
       </Router>
-      {/* <h3>Hi</h3> */}
+      <p
+        style={{
+          zIndex: "-2",
+          position: "relative"
+        }}
+      >
+        Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem
+        impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum
+        Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem
+        impsum{" "}
+      </p>
     </>
   );
 };
