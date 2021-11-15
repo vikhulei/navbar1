@@ -5,7 +5,6 @@ import styled from "styled-components";
 const Nav = styled.nav`
   position: relative;
   height: 60px;
-  margin-bottom: 10px;
   background-color: lightgreen;
   display: flex;
   justify-content: right;
@@ -21,16 +20,16 @@ const LinkWrapper = styled.div`
 const NavLink = styled(Link)`
   text-decoration: none;
   color: darkblue;
+  background-color: darkcyan;
 `;
 
 const Submenu = styled.div`
   background-color: lightgreen;
-  position: fixed;
+  position: absolute;
   top: ${({ submenu }) => (submenu ? "40px" : "-20vh")};
   width: 100px;
   transition: 550ms;
   z-index: -1;
-  opacity: 0.85;
 `;
 
 const Menubar = () => {
@@ -55,6 +54,7 @@ const Menubar = () => {
             <p>Item3</p>
             <p>Item3</p>
             <p>Item3</p>
+            <NavLink to="/overview">Overview</NavLink>
           </Submenu>
         </LinkWrapper>
         <LinkWrapper>
