@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Nav = styled.nav`
-  position: relative;
+  position: fixed;
+  top: 0;
   height: 60px;
+  width: 100%;
   background-color: lightgreen;
   display: flex;
   justify-content: right;
@@ -12,7 +14,6 @@ const Nav = styled.nav`
 `;
 
 const LinkWrapper = styled.div`
-  position: relative;
   display: flex;
   margin-right: 5vw;
 `;
@@ -20,22 +21,24 @@ const LinkWrapper = styled.div`
 const NavLink = styled(Link)`
   text-decoration: none;
   color: darkblue;
-  background-color: darkcyan;
 `;
 
 const Submenu = styled.div`
+  /* display: flex; */
+  flex-direction: column;
   background-color: lightgreen;
   position: absolute;
-  top: ${({ submenu }) => (submenu ? "40px" : "-20vh")};
+  transition: 1550ms;
+  top: ${({ showSubMenu }) => (showSubMenu ? "" : "60px")};
+  display: ${({ showSubMenu }) => (showSubMenu ? "none" : "flex")};
   width: 100px;
-  transition: 550ms;
-  z-index: -1;
 `;
 
 const Menubar = () => {
-  const [submenu, setSubmenu] = useState(false);
+  const [showSubMenu, setShowSubMenu] = useState(true);
+  const [subMenu, setSubMenu] = useState("");
   const showSubmenu = () => {
-    setSubmenu(!submenu);
+    setShowSubMenu(!showSubMenu);
   };
   return (
     <>
@@ -44,21 +47,28 @@ const Menubar = () => {
           <NavLink to="/">Home</NavLink>
         </LinkWrapper>
         <LinkWrapper>
-          <NavLink to="#" onClick={showSubmenu}>
+          <NavLink
+            to="#"
+            onClick={() => {
+              setSubMenu("reports");
+              showSubmenu();
+            }}
+          >
             Reports
           </NavLink>
-          <Submenu submenu={submenu}>
-            <NavLink to="/overview">Overview</NavLink>
-            <p>Item1</p>
-            <p>Item2</p>
-            <p>Item3</p>
-            <p>Item3</p>
-            <p>Item3</p>
-            <NavLink to="/overview">Overview</NavLink>
+          <Submenu showSubMenu={showSubMenu} subMenu={subMenu}>
+            <NavLink to="/reports/reportone">Report1</NavLink>
+            <NavLink to="/reports/reporttwo">Report2</NavLink>
+            <NavLink to="/reports/reportthree">Report3</NavLink>
           </Submenu>
         </LinkWrapper>
         <LinkWrapper>
-          <NavLink to="/original">Original</NavLink>
+          <NavLink to="#" onClick={showSubmenu}>
+            Overview
+          </NavLink>
+        </LinkWrapper>
+        <LinkWrapper>
+          <NavLink to="/teams">Teams</NavLink>
         </LinkWrapper>
       </Nav>
     </>

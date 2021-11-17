@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Overview from "./pages/Overview";
-import Original from "./pages/Original";
+import { ReportOne, ReportTwo, ReportThree } from "./pages/Reports";
+import Teams from "./pages/Teams";
 import Menubar from "./components/Menubar";
 
 const App = () => {
@@ -12,6 +13,10 @@ const App = () => {
         <Menubar />
         <Routes>
           <Route path="/overview" element={<Overview />} />
+          <Route path="/reports/reportone" element={<ReportOne />} />
+          <Route path="/reports/reporttwo" element={<ReportTwo />} />
+          <Route path="/reports/reportthree" element={<ReportThree />} />
+          <Route path="/teams" element={<Teams />} />
         </Routes>
       </Router>
       <p
