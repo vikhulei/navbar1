@@ -1,6 +1,6 @@
 import React from "react";
 
-const Teams = () => {
+const Team = () => {
   return (
     <div className="home">
       <h1>Team</h1>
@@ -8,4 +8,4 @@ const Teams = () => {
   );
 };
 
-export default Teams;
+export default Team;

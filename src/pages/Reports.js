@@ -1,25 +1,33 @@
 import React from "react";
 
-export const ReportOne = () => {
+export const Reports = () => {
   return (
     <div className="reports">
-      <h3>Report1</h3>
+      <h1>Reports</h1>
     </div>
   );
 };
 
-export const ReportTwo = () => {
+export const ReportsOne = () => {
   return (
     <div className="reports">
-      <h3>Report2</h3>
+      <h1>Reports/reports1</h1>
     </div>
   );
 };
 
-export const ReportThree = () => {
+export const ReportsTwo = () => {
   return (
     <div className="reports">
-      <h3>Report3</h3>
+      <h1>Reports/reports2</h1>
+    </div>
+  );
+};
+
+export const ReportsThree = () => {
+  return (
+    <div className="reports">
+      <h1>Reports/reports3</h1>
     </div>
   );
 };

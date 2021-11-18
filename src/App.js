@@ -1,39 +1,24 @@
-import React from "react";
 import "./App.css";
+import Sidebar from "./components/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Overview from "./pages/Overview";
-import { ReportOne, ReportTwo, ReportThree } from "./pages/Reports";
-import Teams from "./pages/Teams";
-import Menubar from "./components/Menubar";
+import { Reports, ReportsOne, ReportsTwo, ReportsThree } from "./pages/Reports";
+import Team from "./pages/Team";
 
-const App = () => {
+function App() {
   return (
-    <>
-      <Router>
-        <Menubar />
-        <Routes>
-          <Route path="/overview" element={<Overview />} />
-          <Route path="/reports/reportone" element={<ReportOne />} />
-          <Route path="/reports/reporttwo" element={<ReportTwo />} />
-          <Route path="/reports/reportthree" element={<ReportThree />} />
-          <Route path="/teams" element={<Teams />} />
-        </Routes>
-      </Router>
-      <p
-        style={{
-          zIndex: "-2",
-          position: "relative",
-          backgroundColor: "lightblue",
-          marginTop: "70px"
-        }}
-      >
-        Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem
-        impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum
-        Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem
-        impsum{" "}
-      </p>
-    </>
+    <Router>
+      <Sidebar />
+      <Routes>
+        <Route path="/overview" exact component={Overview} />
+        <Route path="/reports" exact component={Reports} />
+        <Route path="/reports/reports1" exact component={ReportsOne} />
+        <Route path="/reports/reports2" exact component={ReportsTwo} />
+        <Route path="/reports/reports3" exact component={ReportsThree} />
+        <Route path="/team" exact component={Team} />
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default App;
