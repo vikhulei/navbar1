@@ -23,7 +23,8 @@ const App = () => {
         style={{
           zIndex: "-2",
           position: "relative",
-          backgroundColor: "lightblue"
+          backgroundColor: "lightblue",
+          marginTop: "70px"
         }}
       >
         Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem

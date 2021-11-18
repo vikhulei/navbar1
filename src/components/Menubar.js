@@ -23,7 +23,7 @@ const NavLink = styled(Link)`
   color: darkblue;
 `;
 
-const Submenu = styled.div`
+const Reportmenu = styled.div`
   /* display: flex; */
   flex-direction: column;
   background-color: lightgreen;
@@ -34,12 +34,16 @@ const Submenu = styled.div`
   width: 100px;
 `;
 
+const Overviewmenu = Reportmenu;
+
 const Menubar = () => {
   const [showSubMenu, setShowSubMenu] = useState(true);
   const [subMenu, setSubMenu] = useState("");
+
   const showSubmenu = () => {
     setShowSubMenu(!showSubMenu);
   };
+
   return (
     <>
       <Nav>
@@ -56,16 +60,25 @@ const Menubar = () => {
           >
             Reports
           </NavLink>
-          <Submenu showSubMenu={showSubMenu} subMenu={subMenu}>
+          <Reportmenu showSubMenu={showSubMenu} subMenu={subMenu}>
             <NavLink to="/reports/reportone">Report1</NavLink>
             <NavLink to="/reports/reporttwo">Report2</NavLink>
             <NavLink to="/reports/reportthree">Report3</NavLink>
-          </Submenu>
+          </Reportmenu>
         </LinkWrapper>
         <LinkWrapper>
-          <NavLink to="#" onClick={showSubmenu}>
+          <NavLink
+            to="#"
+            onClick={() => {
+              showSubmenu();
+              console.log(subMenu);
+            }}
+          >
             Overview
           </NavLink>
+          <Overviewmenu showSubMenu={showSubMenu} subMenu={subMenu}>
+            <NavLink to="/reports/reportone">Report1</NavLink>
+          </Overviewmenu>
         </LinkWrapper>
         <LinkWrapper>
           <NavLink to="/teams">Teams</NavLink>
