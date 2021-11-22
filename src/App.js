@@ -10,12 +10,12 @@ function App() {
     <Router>
       <Sidebar />
       <Routes>
-        <Route path="/overview" exact component={Overview} />
-        <Route path="/reports" exact component={Reports} />
-        <Route path="/reports/reports1" exact component={ReportsOne} />
-        <Route path="/reports/reports2" exact component={ReportsTwo} />
-        <Route path="/reports/reports3" exact component={ReportsThree} />
-        <Route path="/team" exact component={Team} />
+        <Route path="/overview" exact element={<Overview />} />
+        <Route path="/reports" exact element={<Reports />} />
+        <Route path="/reports/reports1" exact element={<ReportsOne />} />
+        <Route path="/reports/reports2" exact element={<ReportsTwo />} />
+        <Route path="/reports/reports3" exact element={<ReportsThree />} />
+        <Route path="/team" exact element={<Team />} />
       </Routes>
     </Router>
   );
